@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Homepage</h1>
+  <div class="teams">
+    <h1>Teams</h1>
     
   </div>
 </template>
@@ -8,6 +8,6 @@
 <script>
 
   export default {
-    name: 'HomeView',
+    name: 'MyTeams',
   }
 </script>
