@@ -13,7 +13,18 @@
         </v-toolbar>
 
         <v-navigation-drawer app v-model="drawer" class="primary">
-            <p>teste</p>
+            <v-list v-for="link of links" :key="link.text">
+                <router-link :to="link.route">
+                <v-list-item>
+                    <v-list-item-action>
+                        <v-icon class="white--text">{{ link.icon }}</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title class="white--text">{{ link.text }}</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                </router-link>
+            </v-list>
         </v-navigation-drawer>
     </nav>    
 </template>
@@ -23,12 +34,19 @@ export default {
     name: 'NavBar',
     data(){
         return {
-            drawer: false
+            drawer: false,
+            links: [
+                { icon: 'mdi-view-dashboard', text: 'Dashboard', route: '/' },
+                { icon: 'mdi-folder', text: 'My Projects', route: '/projects' },
+                { icon: 'mdi-account', text: 'Team', route: '/team' },
+            ]
         }
     }
 }
 </script>
 
 <style scoped>
-
+.v-list-item:hover {
+    opacity: 0.5;
+}
 </style>
